@@ -1,0 +1,18 @@
+//
+//  PrefixHeader.pch
+//  BaseDevelop
+//
+//  Created by 新锐 on 16/1/12.
+//
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import "PulibcClass.h"
+#import "UtilsMacro.h"
+#import "AppSet.h"
+#import "APIData.h"
+#import "FrequentlyUsedData.h"
+
+#endif
