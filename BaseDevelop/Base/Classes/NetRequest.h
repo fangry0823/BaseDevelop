@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-@class NetRequest;
 
 typedef NS_ENUM(NSUInteger, RequestMethod) {
     GET = 1001,
@@ -15,17 +14,17 @@ typedef NS_ENUM(NSUInteger, RequestMethod) {
 };
 
 /**
-    网络请求类
-    响应头信息           把NSURLResponse强转成为NSHTTPURLResponse 来获取响应头的信息(AFNetworking可以这么处理)
-    关于Cookie          可以通过[NSHTTPCookieStorage sharedHTTPCookieStorage]来管理,也可以通过响应头获取.
-    获取                 NSArray *cookies = [NSHTTPCookieStorage sharedHTTPCookieStorage].cookies;
-    设置                for (NSHTTPCookie *cookie in cookies) {
-                            [[NSHTTPCookieStorage sharedHTTPCookieStorage] setCookie:cookie];
-                       }
-    可以通过归档来存储(NSKeyedUnarchiver)
+ 网络请求类
+ 响应头信息           把NSURLResponse强转成为NSHTTPURLResponse 来获取响应头的信息(AFNetworking可以这么处理)
+ 关于Cookie          可以通过[NSHTTPCookieStorage sharedHTTPCookieStorage]来管理,也可以通过响应头获取.
+ 获取                 NSArray *cookies = [NSHTTPCookieStorage sharedHTTPCookieStorage].cookies;
+ 设置                for (NSHTTPCookie *cookie in cookies) {
+ [[NSHTTPCookieStorage sharedHTTPCookieStorage] setCookie:cookie];
+ }
+ 可以通过归档来存储(NSKeyedUnarchiver)
  */
 
-@interface NetRequest : NSObject 
+@interface NetRequest : NSObject
 
 /**
  *  网络请求的单例类
@@ -42,10 +41,10 @@ typedef NS_ENUM(NSUInteger, RequestMethod) {
  *
  *  @return nil
  */
-- (nullable NSURLSessionDataTask *)GET:(nullable NSString *)URLString
+- (void)GET:(nullable NSString *)URLString
  parameters:(nullable NSDictionary *)parameters
-    success:(nullable void (^)(NetRequest * _Nullable request, id _Nullable responseObject))success
-    failure:(nullable void (^)(NetRequest * _Nullable request, NSError * _Nullable error))failure;
+    success:(nullable void (^)(id _Nullable responseObject))success
+    failure:(nullable void (^)(NSError * _Nullable error))failure;
 
 /**
  *  POST请求
@@ -57,10 +56,10 @@ typedef NS_ENUM(NSUInteger, RequestMethod) {
  *
  *  @return nil
  */
-- (nullable NSURLSessionDataTask *)POST:(nullable NSString *)URLString
+- (void)POST:(nullable NSString *)URLString
   parameters:(nullable NSDictionary*)parameters
-     success:(nullable void (^)(NetRequest * _Nullable request, id _Nullable responseObject))success
-     failure:(nullable void (^)(NetRequest * _Nullable request, NSError * _Nullable error))failure;
+     success:(nullable void (^)(id _Nullable responseObject))success
+     failure:(nullable void (^)(NSError * _Nullable error))failure;
 
 /**
  *  同步请求 10秒的同步时间,超过10秒走异步方法(不支持取消请求)
@@ -73,11 +72,20 @@ typedef NS_ENUM(NSUInteger, RequestMethod) {
  *
  *  @return nil
  */
-- (nullable NSURLSessionDataTask *)syncRequestWithMethod:(RequestMethod)method
+- (void)syncRequestWithMethod:(RequestMethod)method
                        URLStr:(nullable NSString *)URLString
                    parameters:(nullable NSDictionary*)parameters
-                      success:(nullable void (^)(NetRequest * _Nullable request, id _Nullable responseObject))success
-                      failure:(nullable void (^)(NetRequest * _Nullable request, NSError * _Nullable error))failure;
+                      success:(nullable void (^)( id _Nullable responseObject))success
+                      failure:(nullable void (^)( NSError * _Nullable error))failure;
+
+/**
+ *  在请求地址的字符串后面拼接设备型号等参数
+ *
+ *  @param  urlStr   需要拼接的字符串
+ *
+ *  @return NSString 拼接好的字符串
+ */
+- (nullable NSString *)systemParameterAddpendToURLStr:(nullable NSString *)urlStr;
 
 
 @end

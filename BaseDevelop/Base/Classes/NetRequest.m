@@ -42,62 +42,59 @@ static NetRequest *request = nil;
 #pragma mark -
 #pragma mark 分方法请求
 
-- (NSURLSessionDataTask *)GET:(NSString *)URLString
+- (void)GET:(NSString *)URLString
  parameters:(NSDictionary *)parameters
-    success:(void (^)(NetRequest * _Nullable, id _Nullable))success
-    failure:(void (^)(NetRequest * _Nullable, NSError * _Nullable))failure {
-
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-    URLString = [self systemParameterAddpendToURLStr:URLString];
-    NSURLSessionDataTask *sessionTask = [session GET:URLString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
-        if (success) success(self, responseObject);
-        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
-        NSString *stateStr = [[ErrorAnaly shared] stateWithError:error];
-        ShowMessage(stateStr);
-        if (failure) failure(self, error);
-        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-    }];
-    return sessionTask;
-}
-
-- (NSURLSessionDataTask *)POST:(NSString *)URLString
-  parameters:(NSDictionary *)parameters
-     success:(void (^)(NetRequest * _Nullable, id _Nullable))success
-     failure:(void (^)(NetRequest * _Nullable, NSError * _Nullable))failure {
+    success:(void (^)(id _Nullable))success
+    failure:(void (^)(NSError * _Nullable))failure {
     
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     URLString = [self systemParameterAddpendToURLStr:URLString];
-    NSURLSessionDataTask *sessionTask = [session POST:URLString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
-        if (success) success(self, responseObject);
+    [session GET:URLString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        if (success) success(responseObject);
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
         NSString *stateStr = [[ErrorAnaly shared] stateWithError:error];
         ShowMessage(stateStr);
-        if (failure) failure(self, error);
+        if (failure) failure(error);
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     }];
-    return sessionTask;
 }
 
-- (NSURLSessionDataTask *)syncRequestWithMethod:(RequestMethod)method
+- (void)POST:(NSString *)URLString
+  parameters:(NSDictionary *)parameters
+     success:(void (^)(id _Nullable))success
+     failure:(void (^)(NSError * _Nullable))failure {
+    
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    URLString = [self systemParameterAddpendToURLStr:URLString];
+    [session POST:URLString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        if (success) success(responseObject);
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSString *stateStr = [[ErrorAnaly shared] stateWithError:error];
+        ShowMessage(stateStr);
+        if (failure) failure(error);
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    }];
+}
+
+- (void)syncRequestWithMethod:(RequestMethod)method
                        URLStr:(NSString *)URLString
                    parameters:(NSDictionary *)parameters
-                      success:(void (^)(NetRequest * _Nullable, id _Nullable))success
-                      failure:(void (^)(NetRequest * _Nullable, NSError * _Nullable))failure {
-
+                      success:(void (^)(id _Nullable))success
+                      failure:(void (^)(NSError * _Nullable))failure {
+    
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     NSTimeInterval timeout = 10.0f;
     NSMutableURLRequest *request = [self createSessionRequestWithMethod:method URLStr:URLString parameters:parameters failure:^(NetRequest * _Nullable request, NSError * _Nullable error) {
-        if (failure) failure(nil, error);
+        if (failure) failure(error);
     }];
-
+    
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);//用来创建一个同步的sessionTask 请求
     NSURLSession *requestSession = [NSURLSession sharedSession];
+    
     __block NSURLSessionDataTask *dataTask = nil;
     dataTask = [requestSession dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         if (!error) {
@@ -107,25 +104,24 @@ static NetRequest *request = nil;
                     NSDictionary *responseObject = nil;
                     data = data.length ? data : [NSData new];
                     responseObject = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-                    if (success) success(self, responseObject);
+                    if (success) success(responseObject);
                 } break;
                 default:{
                     ShowMessage(@"连接错误!");
-                    NSLog(@"RequestForm => %@", dataTask.currentRequest);
-                    if (failure) failure(self, nil);
+                    NSLog(@"FaileRequestForm => %@", dataTask.currentRequest);
+                    if (failure) failure(nil);
                 }break;
             }
         } else {
             NSString *stateStr = [[ErrorAnaly shared] stateWithError:error];
             ShowMessage(stateStr);
-            if (failure) failure(self, error);
+            if (failure) failure(error);
         }
         dispatch_semaphore_signal(semaphore);
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     }];
     [dataTask resume];
     dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, timeout * NSEC_PER_SEC));
-    return dataTask;
 }
 
 #pragma mark - 通过AFHTTPSessionManager.requestSerializer创建一个NSMutableURLRequest
@@ -170,8 +166,8 @@ static NetRequest *request = nil;
     NSString *sys_version   = [UIDevice currentDevice].systemVersion;
     NSString *model         = [DeviceVersion deviceVersion];
     NSString *version       = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
-    NSString *IDForVendor = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
-    NSLog(@"iPhoneIDForVendor => %@", IDForVendor);
+    //    NSString *IDForVendor = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
+    //    NSLog(@"iPhoneIDForVendor => %@", IDForVendor);
     [sysUrlStr appendFormat:@"?system=%@&sys_version=%@&model=%@&version=%@", system, sys_version, model, version];
     return sysUrlStr;
 }

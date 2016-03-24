@@ -15,18 +15,23 @@
 
 #pragma mark -
 #pragma mark 类
-
 #import "ViewController.h"
 #import "NetRequest.h"
 #import "TooltipBox.h"
-#import "ScreenScale.h"
+#import "CGUtilities.h"
+#import "UserModel.h"
+
+#pragma mark -
+#pragma mark 第三方类
+
+#import <MJExtension/MJExtension.h>
+#import <SVProgressHUD.h>
 
 #pragma mark -
 #pragma mark 分类
-
-#import "NSString+Process.h"
+#import "NSString+Extension.h"
 #import "UIView+Extension.h"
-#import "UIImage+Process.h"
+#import "UIImage+Extension.h"
 #import "UIImageView+LoadImage.h"
 
 

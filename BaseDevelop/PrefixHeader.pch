@@ -9,10 +9,6 @@
 #ifndef PrefixHeader_pch
 #define PrefixHeader_pch
 
-#import "PulibcClass.h"
-#import "UtilsMacro.h"
-#import "AppSet.h"
-#import "APIData.h"
-#import "FrequentlyUsedData.h"
+#import "Base/Base.h"
 
 #endif

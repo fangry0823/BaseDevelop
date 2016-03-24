@@ -37,26 +37,6 @@
 #pragma mark -
 #pragma mark View的frame设置
 
-- (void)setX:(CGFloat)x {
-    CGRect frame = self.frame;
-    frame.origin.x = x;
-    self.frame = frame;
-}
-
-- (CGFloat)x {
-    return CGRectGetMinX(self.frame);
-}
-
-- (void)setY:(CGFloat)y {
-    CGRect frame = self.frame;
-    frame.origin.y = y;
-    self.frame = frame;
-}
-
-- (CGFloat)y {
-    return CGRectGetMinY(self.frame);
-}
-
 - (void)setTop:(CGFloat)top {
     CGRect frame = self.frame;
     frame.origin.y = top;
