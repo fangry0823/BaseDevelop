@@ -36,6 +36,7 @@
 		61D1211E1CA39ED1009CEB1F /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61D121191CA39ED1009CEB1F /* TabBarController.m */; };
 		61D1211F1CA39ED1009CEB1F /* NavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61D1211B1CA39ED1009CEB1F /* NavigationController.m */; };
 		61D121201CA39ED1009CEB1F /* DataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61D1211D1CA39ED1009CEB1F /* DataController.m */; };
+		61D121231CA3B045009CEB1F /* CALayer+YYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 61D121221CA3B045009CEB1F /* CALayer+YYAdd.m */; };
 		879EE3533EA407B203A43B1D /* libPods-BaseDevelop.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A3B87B095BB986D409D9C6E /* libPods-BaseDevelop.a */; };
 /* End PBXBuildFile section */
 
@@ -104,6 +105,8 @@
 		61D1211B1CA39ED1009CEB1F /* NavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationController.m; sourceTree = "<group>"; };
 		61D1211C1CA39ED1009CEB1F /* DataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataController.h; sourceTree = "<group>"; };
 		61D1211D1CA39ED1009CEB1F /* DataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataController.m; sourceTree = "<group>"; };
+		61D121211CA3B045009CEB1F /* CALayer+YYAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+YYAdd.h"; sourceTree = "<group>"; };
+		61D121221CA3B045009CEB1F /* CALayer+YYAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+YYAdd.m"; sourceTree = "<group>"; };
 		64238E76742D6F8F2B091FF2 /* Pods-BaseDevelop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaseDevelop.release.xcconfig"; path = "Pods/Target Support Files/Pods-BaseDevelop/Pods-BaseDevelop.release.xcconfig"; sourceTree = "<group>"; };
 		C7AE39DFBD34FA963B0D4F8E /* Pods-BaseDevelop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaseDevelop.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BaseDevelop/Pods-BaseDevelop.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -186,6 +189,8 @@
 				618B523A1CA2780C00B41896 /* NSString+Extension.m */,
 				61D121121CA39D97009CEB1F /* NSDate+YYAdd.h */,
 				61D121131CA39D97009CEB1F /* NSDate+YYAdd.m */,
+				61D121211CA3B045009CEB1F /* CALayer+YYAdd.h */,
+				61D121221CA3B045009CEB1F /* CALayer+YYAdd.m */,
 				618B52331CA277E100B41896 /* UIImageView+LoadImage.h */,
 				618B52341CA277E100B41896 /* UIImageView+LoadImage.m */,
 				618B52351CA277E100B41896 /* UIView+Extension.h */,
@@ -321,6 +326,11 @@
 				TargetAttributes = {
 					619BED2A1C43B1E0008F2D6C = {
 						CreatedOnToolsVersion = 7.2;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -425,6 +435,7 @@
 				619BED361C43B1E0008F2D6C /* ViewController.m in Sources */,
 				61D121051CA38A62009CEB1F /* SortPush.m in Sources */,
 				61D120FF1CA389DF009CEB1F /* UserModel.m in Sources */,
+				61D121231CA3B045009CEB1F /* CALayer+YYAdd.m in Sources */,
 				618B522A1CA2777E00B41896 /* UIPlaceHolderTextView.m in Sources */,
 				619BED331C43B1E0008F2D6C /* AppDelegate.m in Sources */,
 				618B523B1CA2780C00B41896 /* NSString+Extension.m in Sources */,

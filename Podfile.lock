@@ -18,7 +18,6 @@ PODS:
   - HappyDNS (0.2.3)
   - JPush (2.1.0)
   - MJExtension (3.0.9)
-  - MJRefresh (3.0.8)
   - Qiniu (7.0.16):
     - AFNetworking (~> 3.0.0-beta.2)
     - HappyDNS (~> 0.2)
@@ -33,7 +32,6 @@ DEPENDENCIES:
   - CustomIOSAlertView (~> 0.9.3)
   - JPush (~> 2.1.0)
   - MJExtension (~> 3.0.8)
-  - MJRefresh (~> 3.0.8)
   - Qiniu (from `https://github.com/qiniu/objc-sdk.git`, branch `AFNetworking-3.x`)
   - Reachability (~> 3.2)
   - SDWebImage (~> 3.7.3)
@@ -55,12 +53,11 @@ SPEC CHECKSUMS:
   HappyDNS: 6d85942e64c28b4fa61f8c76580398f52d6d1d11
   JPush: 92cb879829f0d81ab17b2c9ad009fdb88c6cf6e5
   MJExtension: 116781b18cb25cee39619e16617f62bb7433ea4e
-  MJRefresh: fafde8f18f4afd66b434331a9beb67a6c0264056
   Qiniu: fe4608e64edd9ed8f06c93e6cf4dedf1cc5ba50b
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   SDWebImage: 247edd7dd80dd6124197b0d6a17846fe9d1df968
   SVProgressHUD: c83337f10ed32d701c423d519059a249973c8662
 
-PODFILE CHECKSUM: 6a7f724fac85dc6572dd1d3b36bc0707fd2a8100
+PODFILE CHECKSUM: 1b7aa2e01d3ecbcb85a36fee52808166f5c7114a
 
 COCOAPODS: 1.0.0.beta.4
