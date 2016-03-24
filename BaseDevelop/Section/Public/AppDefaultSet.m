@@ -28,7 +28,7 @@ static AppDefaultSet *appSet = nil;
     [self setUMeng];
     [self setJPush:launchOptions];
     //fangry0823: 16.2.26  检查版本更新
-    [[VersionChange shared] change];
+//    [[VersionChange shared] change];
 }
 
 - (void)setNotification {

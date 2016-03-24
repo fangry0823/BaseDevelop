@@ -555,6 +555,7 @@
 			baseConfigurationReference = C7AE39DFBD34FA963B0D4F8E /* Pods-BaseDevelop.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_BITCODE = NO;
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/BaseDevelop/PrefixHeader.pch";
@@ -571,6 +572,7 @@
 			baseConfigurationReference = 64238E76742D6F8F2B091FF2 /* Pods-BaseDevelop.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_BITCODE = NO;
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/BaseDevelop/PrefixHeader.pch";
