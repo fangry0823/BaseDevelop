@@ -15,19 +15,16 @@
 
 
 
-#pragma mark BugtagsKey
-static NSString * const kBugtagsKey             = @"a74702871cd8f94fad4f6320f9832a3e";
-
 #pragma mark JPushKey
 static NSString * const kJPushKey               = @"fbf594e8cb1d127c1e88f4e7";
 
 #pragma mark UMSocial
-static NSString * const kUMSocialKey            = @"56a9ce2767e58e704c00007d";
-static NSString * const kSharedURL              = @"https://www.baidu.com/";
+//static NSString * const kUMSocialKey            = @"56a9ce2767e58e704c00007d";
+//static NSString * const kSharedURL              = @"https://www.baidu.com/";
 
 #pragma mark WeiChat
-static NSString * const kWeiChatAppID           = @"wxb563a22e0406e9a9";
-static NSString * const kWeiChatKey             = @"73184532a5b5609da7ff7d4ec691a54d";
+//static NSString * const kWeiChatAppID           = @"wxb563a22e0406e9a9";
+//static NSString * const kWeiChatKey             = @"73184532a5b5609da7ff7d4ec691a54d";
 
 #pragma mark QQ
 //static NSString * const kQQAppID                = @"1104292341";

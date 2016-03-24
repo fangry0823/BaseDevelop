@@ -8,10 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-static NSString * const kHome = @"home";
-static NSString * const kMe = @"me";
-static NSString * const kBonus = @"bonus";
-static NSString * const kChat = @"new_msg_num";
 
 @interface SortPush : NSObject
 

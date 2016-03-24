@@ -53,8 +53,6 @@ static NSString * const kUserInfo               = @"kUserInfo"; ///< 用户信�
 static NSString * const kQiniuTokenDicKey       = @"QiniuTokenDicKey";///< 七牛上传的Key的本地存储的字典的key
 
 #pragma mark 提示信息
-static NSString * const kNetNotWork             = @"网络情况不好,请稍候重试!";
-
 
 
 

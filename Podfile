@@ -10,10 +10,9 @@ pod 'AFNetworking', '~> 3.0.4'
 pod 'Reachability', '~> 3.2'
 pod 'SDWebImage', '~> 3.7.3'
 pod 'MJExtension', '~> 3.0.8'
-pod 'MJRefresh', '~> 3.0.8'
-pod 'JPush', '~> 2.1.0'
 pod 'SVProgressHUD', '~> 2.0-beta'
 pod 'CustomIOSAlertView', '~> 0.9.3'
+pod 'JPush', '~> 2.1.0'
 
 end
 
