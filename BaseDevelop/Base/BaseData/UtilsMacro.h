@@ -49,14 +49,14 @@
 
 #pragma mark -
 #pragma mark 字体字号
-#define UIFontForH(flout)                   [UIFont systemFontOfSize:flout * ratio()]
-#define UIFontForB(flout)                   [UIFont boldSystemFontOfSize:flout * ratio()]
+#define UIFontForH(flout)                   [UIFont systemFontOfSize:flout * scaling()]
+#define UIFontForB(flout)                   [UIFont boldSystemFontOfSize:flout * scaling()]
 
 
 #pragma mark -
 #pragma mark 尺寸系数
-#define WidthForRatio(flout)                (flout * ratioW())
-#define HeightForRatio(flout)               (flout * ratioH())
+#define WidthForSaling(flout)               (flout * scalingW())
+#define HeightForScaling(flout)             (flout * scalingH())
 
 
 #pragma mark -

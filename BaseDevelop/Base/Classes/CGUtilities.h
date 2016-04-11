@@ -10,33 +10,33 @@
 
 
 /**
- *  全屏幕状态以iPhone5为基准的比例因子
+ *  全屏幕状态以iPhone5为基准的缩放因子
  */
-CGFloat ratio();
+CGFloat scaling();
 
 /**
- *  以iPhone5为基准的比例因子
+ *  以iPhone5为基准的缩放因子
  *  全屏幕状态下宽
  */
-CGFloat ratioW();
+CGFloat scalingW();
 
 /**
- *  以iPhone5为基准的比例因子
+ *  以iPhone5为基准的缩放因子
  *  全屏幕状态下高
  */
-CGFloat ratioH();
+CGFloat scalingH();
 
 /**
- *  以iPhone5为基准的比例因子
+ *  以iPhone5为基准的缩放因子
  *  有导航栏状态下宽
  */
-CGFloat navRatioW();
+CGFloat navScalingW();
 
 /**
- *  以iPhone5为基准的比例因子
+ *  以iPhone5为基准的缩放因子
  *  有导航栏状态下高
  */
-CGFloat navRatioH();
+CGFloat navScalingH();
 
 /**
  *  系统屏幕 scale

@@ -18,39 +18,39 @@ static CGFloat const iPhone5_H = 568.0f;
 //static CGFloat const iPhone6P_H = 1920.0 / 2.88;
 
 
-CGFloat ratio() {
-    static CGFloat ratio;
+CGFloat scaling() {
+    static CGFloat scaling;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        ratio = screenSize().width / iPhone5_W;
+        scaling = screenSize().width / iPhone5_W;
     });
-    return ratio;
+    return scaling;
 }
 
-CGFloat ratioW() {
-    return ratio();
+CGFloat scalingW() {
+    return scaling();
 }
 
-CGFloat ratioH() {
-    static CGFloat ratioH;
+CGFloat scalingH() {
+    static CGFloat scalingH;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        ratioH = screenSize().height / iPhone5_H;
+        scalingH = screenSize().height / iPhone5_H;
     });
-    return ratioH;
+    return scalingH;
 }
 
-CGFloat navRatioW() {
-    return ratio();
+CGFloat navScalingW() {
+    return scaling();
 }
 
-CGFloat navRatioH() {
-    static CGFloat navRatioH;
+CGFloat navScalingH() {
+    static CGFloat navScalingH;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        navRatioH = (screenSize().height - 64.0f) / (iPhone5_H - 64.0f);
+        navScalingH = (screenSize().height - 64.0f) / (iPhone5_H - 64.0f);
     });
-    return navRatioH;
+    return navScalingH;
 }
 
 CGFloat screenScale() {
