@@ -15,8 +15,36 @@
 
 
 
+/**
+ *  存放App的设置参数和第三方的常量key
+ */
+
+#define Enterprise           //AppStore版本: AppStore    企业版本: Enterprise
+
+
+
+
+#pragma mark 渠道名称
+
+#ifdef AppStore
+static NSString * const kChannel                = @"AppStore";
+#else
+static NSString * const kChannel                = @"fir";
+#endif
+
+
+#pragma mark -
+#pragma mark 第三方Key
+
+#pragma mark BugtagsKey
+//static NSString * const kBugtagsKey             = @"a74702871cd8f94fad4f6320f9832a3e";
+
 #pragma mark JPushKey
-static NSString * const kJPushKey               = @"fbf594e8cb1d127c1e88f4e7";
+#ifdef AppStore
+static NSString * const kJPushKey               = @"3dc02806188314232788f889";
+#else
+static NSString * const kJPushKey               = @"8e9f10f549c89d632b99317e";
+#endif
 
 #pragma mark UMSocial
 //static NSString * const kUMSocialKey            = @"56a9ce2767e58e704c00007d";

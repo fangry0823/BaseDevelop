@@ -45,8 +45,7 @@
 #pragma mark -
 #pragma mark 一些key值
 
-#pragma mark 渠道名称
-static NSString * const kChannel                = @"pre";
+
 
 #pragma mark 1.1.1 缓存
 static NSString * const kUserInfo               = @"kUserInfo"; ///< 用户信息的缓存

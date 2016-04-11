@@ -203,7 +203,7 @@ static ErrorAnaly * errorAnaly = nil;
             return [self errorFor404:errorUserInfo];
         }break;
         case 500:{
-            return @"没有访问权限!";
+            return @"服务器内部错误!";
         }break;
         case 503:{
             return @"服务器不可用!";
@@ -216,6 +216,7 @@ static ErrorAnaly * errorAnaly = nil;
 }
 
 - (NSString *)errorFor404:(NSDictionary *)errorUserInfo {
+/*
     NSString *reason = nil;
     NSURL *errorURL = errorUserInfo[NSURLErrorFailingURLErrorKey];
     //没有登录被重定向指向为/accounts/login 做此判断用于区分
@@ -223,6 +224,8 @@ static ErrorAnaly * errorAnaly = nil;
     else reason = @"没有发现(404)!";
     
     return reason;
+*/
+    return @"没有发现(404)!";
 }
 
 @end
